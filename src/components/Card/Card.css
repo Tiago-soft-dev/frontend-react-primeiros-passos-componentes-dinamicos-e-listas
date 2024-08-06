@@ -5,6 +5,7 @@
     text-align: center;
     width: 300px;
     transition: all 0.15s ease-out;
+    margin: 10px;
   }
   
   .card:hover {
