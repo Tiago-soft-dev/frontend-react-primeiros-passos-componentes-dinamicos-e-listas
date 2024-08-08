@@ -1,32 +1,34 @@
 import './App.css'
 import Card from './components/Card/Card'
+
+
 import Header from './components/Header/Header'
 
 function App() {
 
-  const devmonss = {
-    java: {
-      nome: 'Java',
-      imagem: 'https://salvatore.academy/devmon/1_java.png'
-    },
-    kotlin: {
-      nome: 'Kotlin',
-      imagem: 'https://salvatore.academy/devmon/2_kotlin.png'
-    },
-    android: {
-      nome: 'Android',
-      imagem: 'https://salvatore.academy/devmon/3_android.png'
-    }
+ 
+  const java = {
+    nome: 'Java',
+    imagem: 'https://salvatore.academy/devmon/1_java.png',
+    evoluiPara: 'Kotlin'
   }
-
-  const devmonArray = Object.entries(devmonss).map(([key, value]) => {
-    return {
-      chave: key,
-      nome: value.nome,
-      imagem: value.imagem
-    }
-  })
-
+  const kotlin = {
+    nome: 'Kotlin',
+    imagem: 'https://salvatore.academy/devmon/2_kotlin.png',
+    evoluiPara: 'Android'
+  }
+  const android = {
+    nome: 'Android',
+    imagem: 'https://salvatore.academy/devmon/3_android.png',
+    evoluiPara: 'C'
+  }
+  const c = {
+    nome: 'C',
+    imagem: 'https://salvatore.academy/devmon/4_c.png',
+    evoluiPara: null
+  }
+  const devmons = [java,kotlin,android,c]
+ 
   return (
     <>
       Lista de Cards com Map:
@@ -34,9 +36,14 @@ function App() {
       <br />
       <Header />
       <div className='cards'>
-        {devmonArray.map((value) => {
-          return <Card nome={value.nome} imagem={value.imagem} key={value.chave} />
-          })}
+        {devmons.map((devmon)=>{
+                  
+         return (
+          <Card key={devmon.nome} nome={devmon.nome} imagem={devmon.imagem} evoluiPara={devmon.evoluiPara}/>
+                    
+         )
+          
+        })}
       </div>
 
       <br />
